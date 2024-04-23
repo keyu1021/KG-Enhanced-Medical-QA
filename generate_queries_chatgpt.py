@@ -26,7 +26,7 @@ class Neo4jToChatGPTPipeline:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",  #
             messages=[
-                {"role": "system", "content": "You are ann expert in Cypher graph queries."},
+                {"role": "system", "content": "You are an expert in Cypher graph queries."},
                 {"role": "user", "content": prompt}
             ]
         )
