@@ -15,13 +15,19 @@ https://drive.google.com/drive/folders/1tB41dGLulG7q5CD1qq4UgFPZ6XBUv_VT?usp=dri
 
 
 ## Scripts
-load_neo4j.py: load the csv files into the graph database
-generate_queries_chatgpt.py: baseline model GPT4, generate 
-finetune.py: fine tune code llama
-evaluate.py: evaluate our proposed model along with baseline models
-generate_queries_chatgpt: baseline model GPT4 on generate queries based on questions
-result_to_language.py: convert the result from query into an answer using natural language
+# load_neo4j.py: load the csv files into the graph database
+
+# generate_queries_chatgpt.py: baseline model GPT4, generate 
+
+# finetune.py: fine tune code llama
+
+# evaluate.py: evaluate our proposed model along with baseline models
+
+# generate_queries_chatgpt: baseline model GPT4 on generate queries based on questions
+
+# result_to_language.py: convert the result from query into an answer using natural language
 
 ## Datasets
-test_questions_and_cypher_queries.csv: testing data
-first_questions_and_cypher_queries.csv: training data
+# test_questions_and_cypher_queries.csv: testing data
+
+# first_questions_and_cypher_queries.csv: training data
