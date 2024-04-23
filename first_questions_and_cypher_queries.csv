@@ -82,3 +82,23 @@ Which drugs have Abnormality of the face as a side effect?,MATCH (dis:Disease {n
 Identify gene_proteins expressed in the zone of skin associated with dermatological diseases.,MATCH (e:Effect {name: 'Abnormality of the face'})<-[:side_effect]-(d:Drug) RETURN d.name AS Drugs
 What are the treatment options for Abnormality of mouth size?,"MATCH (a:Anatomy {name: 'zone of skin'})<-[:expression_present]-(g:Gene_Protein)<-[:associated_with]-(dis:Disease) RETURN g.name AS GeneProteins, collect(dis.name) AS Diseases"
 Which anatomical structures are affected by diseases resulting in Abnormality of salivation?,MATCH (e:Effect {name: 'Abnormal oral frenulum morphology'})-[:associated_with]->(g:Gene_Protein) RETURN g.name AS TargetedGeneProteins
+Can you identify genetic markers that influence the efficacy of Arotinolol and any potential impact on treatment outcomes?,"MATCH (d:Drug {name: 'Arotinolol'})-[:target]->(g:Gene_Protein), (g)-[:associated_with]->(dis:Disease) RETURN g.name AS GeneticMarker, dis.name AS RelatedCondition"
+For the phenotype Abnormality of taste sensation, which gene-proteins are targeted by drugs?","MATCH (e:Effect {name: 'Abnormality of taste sensation'})-[:associated_with]->(g:Gene_Protein)<-[:target]-(d:Drug) RETURN g.name AS Genes, collect(d.name) AS Drugs"
+In which anatomical structures is the gene associated with Abnormality of the gingiva expressed?,MATCH (e:Effect {name: 'Abnormality of the gingiva'})-[:associated_with]->(g:Gene_Protein)-[:expression_present]->(a:Anatomy) RETURN a.name AS AnatomicalStructures
+What are the effects of mutations in genes that are enzymes for the metabolism of Rilpivirine on the drug's transporter function and any associated diseases?,"MATCH (g:Gene_Protein)-[:enzyme]->(d:Drug {name: 'Rilpivirine'}), (g)-[:transporter]->(d), (g)-[:associated_with]->(dis:Disease) RETURN g.name AS Gene, d.name AS Drug, dis.name AS Disease"
+What drugs are indicated for treating Alzheimer's disease?,"MATCH (d:Drug)-[:indication]->(dis:Disease {name: 'Alzheimer\'s'}) RETURN d.name AS Drug"
+Which drugs should not be used with chronic kidney disease?,"MATCH (d:Drug)-[:contraindication]->(dis:Disease {name: 'chronickidneydisease'}) RETURN d.name AS Drug"
+What are the side effects of using Lisinopril?,"MATCH (e:Effect)-[:side_effect]->(d:Drug {name: 'Lisinopril'}) RETURN e.name AS SideEffect"
+What diseases are associated with the gene CFTR?,"MATCH (gp:Gene_Protein {name: 'CFTR'})-[:associated_with]->(dis:Disease) RETURN dis.name AS Disease"
+Which drugs are transported by the protein ABCB1?,"MATCH (gp:Gene_Protein {name: 'ABCB1'})-[:transporter]->(d:Drug) RETURN d.name AS Drug"
+What parent diseases are associated with lung cancer?,"MATCH (dis:Disease {name: 'lungcancer'})<-[:parent_child]-(parent:Disease) RETURN parent.name AS ParentDisease"
+What drugs interact synergistically with Tadalafil?,"MATCH (d1:Drug {name: 'Tadalafil'})-[:synergy_interaction]->(d2:Drug) RETURN d2.name AS SynergisticDrug"
+Which genes show no expression in the pancreas?,"MATCH (gp:Gene_Protein)-[:expression_absent]->(anat:Anatomy {name: 'pancreas'}) RETURN gp.name AS Gene"
+What are the target proteins for the drug Imatinib?,"MATCH (gp:Gene_Protein)-[:target]->(d:Drug {name: 'Imatinib'}) RETURN gp.name AS TargetProtein"
+What diseases are linked to the transporter function of the gene SLCO1B3?,"MATCH (gp:Gene_Protein {name: 'SLCO1B3'})-[:transporter]->(d:Drug), (gp)-[:associated_with]->(dis:Disease) RETURN d.name AS Drug, dis.name AS Disease"
+Which gene_proteins are expressed in the heart?,MATCH (gp:Gene_Protein)-[:expression_absent]->(anat:Anatomy {name: 'heart'}) RETURN gp.name;
+What drugs have a contraindication with the disease pepticulcer?,MATCH (d:Drug)-[:contraindication]->(dis:Disease {name: 'pepticulcer'}) RETURN d.name;
+What are the possible side effects of atorvastatin?, MATCH (e:Effect)-[:side_effect]->(d:Drug {name: 'atorvastatin'}) RETURN e.name;
+Which diseases are treated with Azathioprine, according to its indications?",MATCH (d:Drug {name: 'Azathioprine'})-[:indication]->(dis:Disease) RETURN dis.name;
+Which diseases can be managed with Hydrocortisone according to its medical indications?,MATCH (d:Drug {name: 'Hydrocortisone'})-[:indication]->(dis:Disease) RETURN dis.name;
+Which drugs treat asthma?,MATCH (d:Drug)-[:indication]->(dis:Disease {name: 'asthma'}) RETURN d.name;

@@ -24,7 +24,7 @@ class Neo4jToChatGPTPipeline:
         # Send the prompt to the ChatGPT API
            # Call the ChatGPT model
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  #
+            model="gpt-4.0",  #
             messages=[
                 {"role": "system", "content": "You are an expert in Cypher graph queries."},
                 {"role": "user", "content": prompt}
