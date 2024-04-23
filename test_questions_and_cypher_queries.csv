@@ -17,7 +17,6 @@ What drugs are recommended for gastroesophageal reflux disease based on gene_pro
 What are the drugs indicated for obesity disorder that have interactions with gene_proteins acting as enzymes?,MATCH (gp:Gene_Protein)-[:enzyme]->(d:Drug)-[:indication]->(dis:Disease {name: 'obesity disorder'}) RETURN d.name;
 Which diseases are associated with the pituitary gland?, MATCH (a:Anatomy {name: 'pituitary gland'})<-[:associated_with]-(dis:Disease) RETURN dis.name;
 What genes are linked to diseases of the peripheral nervous system?, MATCH (a:Anatomy {name: 'peripheral nervous system'})<-[:associated_with]-(dis:Disease)<-[:associated_with]-(g:Gene_Protein) RETURN g.name",
-    "MATCH (d:Drug)-[:contraindication]->(dis:Disease {name: 'hypertension'}) RETURN d.name;
 What drugs have a contraindication for hypertension?,MATCH (d:Drug)-[:contraindication]->(dis:Disease {name: 'hypertension'}) RETURN d.name;
 What is the off-label use of metformin for a disease?,MATCH (d:Drug {name: 'metformin'})-[:off_label_use]->(dis:Disease) RETURN dis.name;
 Which drugs synergistically interact with clopidogrel?,MATCH (d:Drug {name: 'clopidogrel'})-[:synergy_interaction]->(d2:Drug) RETURN d2.name;
