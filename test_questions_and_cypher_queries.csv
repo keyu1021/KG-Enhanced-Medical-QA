@@ -1,0 +1,53 @@
+Question,Cypher Query
+What diseases are treated with Betamethasone?,MATCH (d:Drug {name: 'Betamethasone'})-[:indication]->(dis:Disease) RETURN dis.name;
+For which conditions is Prednisone indicated?,MATCH (d:Drug {name: 'Prednisone'})-[:indication]->(dis:Disease) RETURN dis.name;
+Which diseases can be managed with Hydrocortisone according to its medical indications?,MATCH (d:Drug {name: 'Hydrocortisone'})-[:indication]->(dis:Disease) RETURN dis.name;
+What are the therapeutic uses of Vitamin A in the treatment of diseases?,MATCH (d:Drug {name: 'Vitamin A'})-[:indication]->(dis:Disease) RETURN dis.name;
+In which diseases is Fluoxetine used off-label?,MATCH (d:Drug {name: 'Fluoxetine'})-[:off_label_use]->(dis:Disease) RETURN dis.name;
+For what diseases is Methylprednisolone a contraindicated drug?,MATCH (d:Drug {name: 'Methylprednisolone'})-[:contraindication]->(dis:Disease) RETURN dis.name;
+"Which diseases are treated with Azathioprine, according to its indications?",MATCH (d:Drug {name: 'Azathioprine'})-[:indication]->(dis:Disease) RETURN dis.name;
+Are there any diseases for which Doxorubicin is considered an off-label treatment?,MATCH (d:Drug {name: 'Doxorubicin'})-[:off_label_use]->(dis:Disease) RETURN dis.name;
+What are the indications for using Lovastatin in disease treatment?,MATCH (d:Drug {name: 'Lovastatin'})-[:indication]->(dis:Disease) RETURN dis.name;
+"Which diseases can Ketoprofen be used to treat, including off-label uses?",MATCH (d:Drug {name: 'Ketoprofen'})-[:indication | :off_label_use]->(dis:Disease) RETURN dis.name;
+What drugs are contraindicated for patients with Sjogren-Larsson syndrome?,MATCH (d:Drug)-[:contraindication]->(dis:Disease {name: 'Sjogren-Larsson syndrome'}) RETURN d.name;
+Identify drugs indicated for the management of temporal arteritis.,MATCH (d:Drug)-[:indication]->(dis:Disease {name: 'temporal arteritis'}) RETURN d.name;
+Are there any transporter-related gene_proteins for drugs used in colorectal cancer?,MATCH (gp:Gene_Protein)-[:transporter]->(d:Drug)-[:indication]->(dis:Disease {name: 'colorectal cancer'}) RETURN gp.name;
+What drugs are recommended for gastroesophageal reflux disease based on gene_protein targets?,MATCH (gp:Gene_Protein)-[:target]->(d:Drug)-[:indication]->(dis:Disease {name: 'gastroesophageal reflux disease'}) RETURN d.name;
+"For patients with ulcerative colitis disease, what are the side effects associated with the prescribed drugs?",MATCH (e:Effect)-[:side_effect]->(d:Drug)-[:indication]->(dis:Disease {name: 'ulcerative colitis disease'}) RETURN e.name;
+What are the drugs indicated for obesity disorder that have interactions with gene_proteins acting as enzymes?,MATCH (gp:Gene_Protein)-[:enzyme]->(d:Drug)-[:indication]->(dis:Disease {name: 'obesity disorder'}) RETURN d.name;
+Which diseases are associated with the pituitary gland?, MATCH (a:Anatomy {name: 'pituitary gland'})<-[:associated_with]-(dis:Disease) RETURN dis.name;
+What genes are linked to diseases of the peripheral nervous system?, MATCH (a:Anatomy {name: 'peripheral nervous system'})<-[:associated_with]-(dis:Disease)<-[:associated_with]-(g:Gene_Protein) RETURN g.name",
+    "MATCH (d:Drug)-[:contraindication]->(dis:Disease {name: 'hypertension'}) RETURN d.name;
+What drugs have a contraindication for hypertension?,MATCH (d:Drug)-[:contraindication]->(dis:Disease {name: 'hypertension'}) RETURN d.name;
+What is the off-label use of metformin for a disease?,MATCH (d:Drug {name: 'metformin'})-[:off_label_use]->(dis:Disease) RETURN dis.name;
+Which drugs synergistically interact with clopidogrel?,MATCH (d:Drug {name: 'clopidogrel'})-[:synergy_interaction]->(d2:Drug) RETURN d2.name;
+What are the possible side effects of atorvastatin?, MATCH (e:Effect)-[:side_effect]->(d:Drug {name: 'atorvastatin'}) RETURN e.name;
+Which enzymes are associated with the drug warfarin?,MATCH (gp:Gene_Protein)-[:enzyme]->(d:Drug {name: 'warfarin'}) RETURN gp.name;
+What diseases are related to the gene_protein BRCA1?,MATCH (gp:Gene_Protein {name: 'BRCA1'})-[:associated_with]->(dis:Disease) RETURN dis.name";
+Which drugs target the protein PD-1?,MATCH (gp:Gene_Protein {name: 'PD-1'})-[:target]->(d:Drug) RETURN d.name'
+What are the parent diseases of melanoma?,MATCH (dis:Disease {name: 'melanoma'})<-[:parent_child]-(parent:Disease) RETURN parent.name'
+Which genes have no expression in the liver?,MATCH (gp:Gene_Protein)-[:expression_absent]->(anat:Anatomy {name: 'liver'}) RETURN gp.name'
+What drugs are indicated for the treatment of asthma?,MATCH (d:Drug)-[:indication]->(dis:Disease {name: 'asthma'}) RETURN d.name'
+What drugs are indicated for the treatment of type1diabetes?,MATCH (d:Drug)-[:indication]->(dis:Disease {name: 'type1diabetes'}) RETURN d.name'
+Which diseases can be a parent condition to type2diabetes?,MATCH (dis:Disease {name: 'type2diabetes'})<-[:parent_child]-(parent:Disease) RETURN parent.name'
+What side effects are caused by the drug ibuprofen?,MATCH (e:Effect)-[:side_effect]->(d:Drug {name: 'ibuprofen'}) RETURN e.name'
+Which transporters are involved with the drug tacrolimus?,MATCH (gp:Gene_Protein)-[:transporter]->(d:Drug {name: 'tacrolimus'}) RETURN gp.name'
+What diseases are associated with the gene_protein TP53?,MATCH (gp:Gene_Protein {name: 'TP53'})-[:associated_with]->(dis:Disease) RETURN dis.name;
+Which carriers are involved with the drug digoxin?,MATCH (gp:Gene_Protein)-[:carrier]->(d:Drug {name: 'digoxin'}) RETURN gp.name";
+Which drugs are used off-label for the treatment of migraine?,MATCH (gp:Gene_Protein)-[:enzyme]->(d:Drug {name: 'simvastatin'}) RETURN gp.name;
+What are the synergistic interactions between aspirin and other drugs?,MATCH (d:Drug {name: 'aspirin'})-[:synergy_interaction]->(d2:Drug) RETURN d2.name;
+Which gene_proteins are expressed in the heart?,MATCH (gp:Gene_Protein)-[:expression_absent]->(anat:Anatomy {name: 'heart'}) RETURN gp.name;
+What drugs have a contraindication with the disease pepticulcer?,MATCH (d:Drug)-[:contraindication]->(dis:Disease {name: 'pepticulcer'}) RETURN d.name;
+What are the possible side effects of atorvastatin?, MATCH (e:Effect)-[:side_effect]->(d:Drug {name: 'atorvastatin'}) RETURN e.name;
+Which diseases are treated with Azathioprine, according to its indications?",MATCH (d:Drug {name: 'Azathioprine'})-[:indication]->(dis:Disease) RETURN dis.name;
+Which diseases can be managed with Hydrocortisone according to its medical indications?,MATCH (d:Drug {name: 'Hydrocortisone'})-[:indication]->(dis:Disease) RETURN dis.name;
+Which drugs treat asthma?,MATCH (d:Drug)-[:indication]->(dis:Disease {name: 'asthma'}) RETURN d.name;
+Which drugs should not be used with pepticulcer?,MATCH (d:Drug)-[:contraindication]->(dis:Disease {name: 'pepticulcer'}) RETURN d.name;
+What is the parent condition of psoriasis?,MATCH (dis:Disease {name: 'psoriasis'})<-[:parent_child]-(parent:Disease) RETURN parent.name;
+What side effects does paracetamol have?, MATCH (e:Effect)-[:side_effect]->(d:Drug {name: 'paracetamol'}) RETURN e.name;
+Which drugs interact with warfarin?,MATCH (d:Drug {name: 'warfarin'})-[:synergy_interaction]->(d2:Drug) RETURN d2.name;
+Which diseases are linked to high expression of ALK?,MATCH (gp:Gene_Protein {name: 'ALK'})-[:associated_with]->(dis:Disease) RETURN dis.name;
+Where is the gene KRAS not expressed?,MATCH (gp:Gene_Protein {name: 'KRAS'})-[:expression_absent]->(anat:Anatomy) RETURN anat.name;
+Which drugs are used off-label for depression?, MATCH (d:Drug)-[:off_label_use]->(dis:Disease {name: 'depression'}) RETURN d.name;
+What proteins does the drug herceptin target?,MATCH (gp:Gene_Protein {name: 'herceptin'})-[:target]->(d:Drug) RETURN gp.name;
+Give 5 pairs of drugs that synergistically interact with each other,MATCH (d1:Drug)-[:synergy_interaction]->(d2:Drug) RETURN d1.name, d2.name LIMIT 5;
