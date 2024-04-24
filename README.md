@@ -24,8 +24,6 @@ https://drive.google.com/drive/folders/1tB41dGLulG7q5CD1qq4UgFPZ6XBUv_VT?usp=dri
 ## Scripts
 load_neo4j.py: load the csv files into the graph database
 
-Purpose: Loads CSV files into the Neo4j graph database.
-
 finetune.py: fine tune code llama
 
 evaluate.py: evaluate our proposed model along with baseline models
